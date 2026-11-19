@@ -12,6 +12,7 @@ import { blocks, charts, components, templates } from "@/lib/registry";
 import { cx } from "@/utils/cx";
 import { DocsNav } from "./docs-nav";
 import { DocsSearchProvider, useDocsSearch } from "./docs-search";
+import { GitHubStars } from "./github-stars";
 import { VantuMark } from "./vantu-mark";
 
 interface NavEntry {
@@ -131,6 +132,7 @@ function HeaderBar() {
             >
               <Search className="size-4" />
             </button>
+            <GitHubStars className="hidden sm:inline-flex" />
             <Link
               href="/docs/installation"
               className="hidden h-10 items-center rounded-[12px] bg-linear-to-b from-accent-light to-accent px-4 text-base font-medium text-white shadow-button-primary outline-none hover:to-accent-hover focus-visible:ring-3 focus-visible:ring-accent/25 sm:inline-flex"

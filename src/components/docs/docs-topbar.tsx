@@ -8,6 +8,7 @@ import { Dialog, Modal, ModalOverlay } from "react-aria-components";
 import { blocks, charts, components } from "@/lib/registry";
 import { findNav } from "./docs-nav";
 import { useDocsSearch } from "./docs-search";
+import { GitHubStars } from "./github-stars";
 import { VantuMark } from "./vantu-mark";
 import { DocsSidebar } from "./docs-sidebar";
 
@@ -71,6 +72,7 @@ export function DocsTopbar() {
         >
           <Search className="size-4" />
         </button>
+        <GitHubStars size="sm" className="hidden sm:inline-flex" />
         <Link href="/templates" className="hidden h-9 items-center rounded-md bg-surface px-3 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus sm:inline-flex">
           Templates
         </Link>
