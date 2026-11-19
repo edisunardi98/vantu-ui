@@ -12,7 +12,7 @@ import { readSource } from "./source";
  */
 
 /** Public origin of the docs. Set NEXT_PUBLIC_SITE_URL when you deploy. */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vantu.dev").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vantu-ui.vercel.app").replace(/\/$/, "");
 
 export const registryUrl = (name: string) => `${siteUrl}/r/${name}.json`;
 

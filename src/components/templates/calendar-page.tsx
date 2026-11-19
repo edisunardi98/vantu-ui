@@ -38,7 +38,7 @@ const events: CalEvent[] = [
   { title: "Territory planning", day: 2, start: 11, end: 11.5, kind: "internal", status: "cancelled" },
   { title: "Negotiation · Northpeak", day: 2, start: 11.5, end: 13, kind: "meeting", people: ["Marcus Reid", "Priya Raman", "Jordan Blake"], where: "Zoom" },
   { title: "Customer feedback session", day: 3, start: 9, end: 10, kind: "meeting", people: ["Elena Vasquez", "Leah Moss", "Grace Kim"], where: "Meet" },
-  { title: "Webinar: Outbound in 2027", day: 3, start: 11.5, end: 13, kind: "event", where: "vantu.dev/live" },
+  { title: "Webinar: Outbound in 2027", day: 3, start: 11.5, end: 13, kind: "event", where: "vantu-ui.vercel.app/live" },
 ];
 
 const kindStyle: Record<Kind, string> = {
