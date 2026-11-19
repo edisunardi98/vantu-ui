@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./typography.css";
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-surface);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.4;
+  }
+  *, ::before, ::after {
+    border-color: var(--color-line);
+  }
+  ::selection {
+    background: var(--color-accent-soft-border);
+  }
+}

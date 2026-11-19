@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/edisunardi98/vantu-ui/discussions
+    about: Ask and discuss in GitHub Discussions.
+  - name: Docs
+    url: https://vantu.dev/docs
+    about: Installation, usage and every item's props.

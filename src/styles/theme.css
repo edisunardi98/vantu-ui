@@ -1,0 +1,181 @@
+/*
+ * Vantu UI — design tokens
+ * Source: Figma "Vantu UI"
+ * Collections: Color (58), Scale (43), Typography (18). Light mode only.
+ */
+@theme {
+  /* Reset Tailwind's default palette: only design-system colors exist. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* bg/* */
+  --color-app: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-subtle: #fafafa;
+  --color-muted: #f4f4f5;
+  --color-active: #f0f0f2;
+  --color-inverse: #222224;
+
+  /* border/* */
+  --color-line: #e8e8ea;
+  --color-line-strong: #dcdde1;
+  --color-line-subtle: #f0f0f2;
+
+  /* text/* */
+  --color-fg: #222224;
+  --color-fg-secondary: #6f7075;
+  --color-fg-muted: #96979c;
+  --color-fg-disabled: #b5b6ba;
+  --color-fg-inverse: #ffffff;
+
+  /* accent/* */
+  --color-accent: #635bff;
+  --color-accent-hover: #574fff;
+  --color-accent-pressed: #4a42e8;
+  --color-accent-soft: #f2f1ff;
+  --color-accent-soft-border: #e2e0ff;
+  --color-accent-text: #564ef0;
+  --color-accent-light: #6686ff; /* top stop of the primary button gradient */
+
+  /* status */
+  --color-success: #22a06b;
+  --color-success-soft: #eaf6f0;
+  --color-success-border: #cdebdc;
+  --color-success-text: #1a7f54;
+
+  --color-warning: #d98b24;
+  --color-warning-soft: #fcf3e6;
+  --color-warning-border: #f3ddba;
+  --color-warning-text: #9e6116;
+
+  --color-error: #d64545;
+  --color-error-hover: #c23a3a;
+  --color-error-soft: #fceeee;
+  --color-error-border: #f5d0d0;
+  --color-error-text: #b53535;
+
+  --color-info: #3b82f6;
+  --color-info-soft: #edf3fe;
+  --color-info-border: #d3e2fc;
+  --color-info-text: #2c68cc;
+
+  --color-neutral-soft: #f2f2f3;
+  --color-neutral-text: #5f6066;
+
+  /* chart/* */
+  --color-chart-primary: #635bff;
+  --color-chart-primary-soft: #d9d7ff;
+  --color-chart-neutral: #c7c8ce;
+  --color-chart-neutral-soft: #e6e6e9;
+  --color-chart-grid: #ededef;
+  /* categorical series (2–6) — fixed order after chart-primary, never cycled.
+     Validated: lightness band, chroma, adjacent CVD ΔE ≥ 9.6, normal-vision ΔE ≥ 20.
+     chart-3 is < 3:1 on white, so every chart pairs color with a legend + tooltip. */
+  --color-chart-2: #1fa58f;
+  --color-chart-3: #e8772b;
+  --color-chart-4: #3b82f6;
+  --color-chart-5: #e5507a;
+  --color-chart-6: #b98a12;
+  /* sequential ramp (accent hue, light → dark) for heatmaps */
+  --color-chart-seq-1: #efeeff;
+  --color-chart-seq-2: #d9d7ff;
+  --color-chart-seq-3: #b3aeff;
+  --color-chart-seq-4: #8a83ff;
+  --color-chart-seq-5: #635bff;
+  --color-chart-seq-6: #4038c7;
+
+  /* avatar/* */
+  --color-avatar-blue-bg: #e7eefc;
+  --color-avatar-blue-fg: #2e5cc0;
+  --color-avatar-green-bg: #e4f3eb;
+  --color-avatar-green-fg: #1b774e;
+  --color-avatar-amber-bg: #faeedc;
+  --color-avatar-amber-fg: #95590f;
+  --color-avatar-rose-bg: #fae6ea;
+  --color-avatar-rose-fg: #ad3651;
+  --color-avatar-violet-bg: #edebff;
+  --color-avatar-violet-fg: #4f46d9;
+  --color-avatar-slate-bg: #ecedef;
+  --color-avatar-slate-fg: #484950;
+  --color-avatar-teal-bg: #e0f2f1;
+  --color-avatar-teal-fg: #1b6f6e;
+
+  /* Typography — font/family/* */
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* font/size/* (line-height/multi = 140%, single = 100%) */
+  --text-xs: 10px;
+  --text-xs--line-height: 1.4;
+  --text-sm: 12px;
+  --text-sm--line-height: 1.4;
+  --text-base: 14px;
+  --text-base--line-height: 1.4;
+  --text-lg: 16px;
+  --text-lg--line-height: 1.4;
+  --text-xl: 20px;
+  --text-xl--line-height: 1.3;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 1.25;
+  --text-3xl: 28px;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 32px;
+  --text-4xl--line-height: 1.15;
+  --text-5xl: 36px;
+  --text-5xl--line-height: 1.1;
+  --text-6xl: 40px;
+  --text-6xl--line-height: 1.1;
+  --text-7xl: 44px;
+  --text-7xl--line-height: 1.05;
+  --text-8xl: 48px;
+  --text-8xl--line-height: 1.05;
+
+  /* radius/* */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* Effects (from Figma layer styles) */
+  --shadow-button:
+    0 1px 2px rgb(0 0 0 / 0.02), 0 1px 2px rgb(0 0 0 / 0.04),
+    0 1px 2px rgb(82 88 102 / 0.06), inset 0 0 0 1px #e6e7eb;
+  --shadow-button-primary:
+    0 0 0 0.6px #635bff, 0 1.8px 4.9px rgb(99 91 255 / 0.08),
+    0 8.5px 8.5px rgb(99 91 255 / 0.07), inset 0 -0.9px 0.9px rgb(255 255 255 / 0.24),
+    inset 0 -0.9px 0.9px rgb(255 255 255 / 0.24);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.03);
+  --shadow-popover: 0 0 0 1px #e8e8ea, 0 4px 6px -2px rgb(0 0 0 / 0.04), 0 12px 24px -4px rgb(0 0 0 / 0.08);
+  --shadow-focus: 0 0 0 3px rgb(99 91 255 / 0.16);
+  --shadow-focus-error: 0 0 0 3px rgb(214 69 69 / 0.14);
+
+  /* size/* */
+  --spacing-sidebar: 288px;
+  --spacing-topbar: 60px;
+
+  --animate-spin: spin 0.8s linear infinite;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  --animate-marquee: marquee 90s linear infinite;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  --animate-marquee-reverse: marquee-reverse 90s linear infinite;
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  --animate-caret: caret 1.05s steps(1) infinite;
+  @keyframes caret {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}

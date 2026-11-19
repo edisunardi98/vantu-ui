@@ -1,0 +1,35 @@
+name: Bug report
+description: Something in a Vantu UI item doesn't work as expected
+labels: ["bug"]
+body:
+  - type: input
+    id: item
+    attributes:
+      label: Item
+      description: Which component, block, chart or template?
+      placeholder: e.g. Date Picker
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps or snippet to reproduce
+      render: tsx
+  - type: input
+    id: setup
+    attributes:
+      label: Setup
+      placeholder: React 19.x, Next.js 16, Chrome 142
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here if they help.

@@ -1,0 +1,114 @@
+/* Docs-site only styles (not part of the design system). */
+
+/* The site header is sticky (60px). Without this, keyboard focus, anchor links and
+   scrollIntoView park elements underneath it. */
+html {
+  scroll-padding-top: 76px;
+}
+.code pre {
+  background: transparent !important;
+  margin: 0;
+}
+.code code {
+  counter-reset: line;
+}
+
+/* Isometric line-art thumbnails (components/docs/iso). */
+.iso {
+  --iso-ink: #2a2a30;
+  --iso-ink-top: #3a3a42;
+  --iso-face: #ffffff;
+  --iso-side: #f1f1f4;
+  --iso-side-dark: #e4e4ea;
+  --iso-shadow: #ececf1;
+  --iso-text: #d6d7de;
+  --iso-grid: #e3e4ec;
+  --iso-guide: #a9b4ff;
+  --iso-accent-top: #8a84ff;
+  --iso-accent-side: #5b53f5;
+  --iso-accent-soft: #f2f1ff;
+  --iso-accent-soft-side: #e2e0ff;
+  overflow: visible;
+}
+.iso * {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.iso-grid line {
+  stroke: var(--iso-grid);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.iso-guide {
+  stroke: var(--iso-guide);
+  stroke-dasharray: 3 3;
+}
+.iso-rays line {
+  stroke: var(--iso-ink);
+  opacity: 0.55;
+}
+.iso-dashed {
+  stroke-dasharray: 4 3;
+}
+.iso-accent-stroke {
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+}
+.iso-lift {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.group:hover .iso-lift {
+  transform: translateY(-6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .iso-lift {
+    transition: none;
+  }
+}
+
+/* Line numbers for code blocks with `lineNumbers` (shiki emits one span.line per line). */
+.code-lines .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 3ch;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: var(--color-fg-disabled);
+  user-select: none;
+}
+
+/* Isometric scenes on a dark surface (landing CTA): keep white faces, soften grid, shadows and guides. */
+.iso-dark .iso {
+  --iso-grid: rgb(255 255 255 / 0.07);
+  /* Soft violet: a light tint where it falls on the white board, near-invisible on the dark surface. */
+  --iso-shadow: rgb(40 32 140 / 0.14);
+  --iso-guide: #8f88ff;
+}
+.iso-dark .iso-rays line {
+  stroke: #c9c6ff;
+  opacity: 0.8;
+}
+
+/* Gentle float for hovering slabs; still for reduced motion. */
+.iso-bob {
+  animation: iso-bob 5.5s ease-in-out infinite;
+}
+.iso-bob-delay {
+  animation-delay: -2.4s;
+}
+@keyframes iso-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iso-bob {
+    animation: none;
+  }
+}

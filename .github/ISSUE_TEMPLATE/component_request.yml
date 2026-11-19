@@ -1,0 +1,22 @@
+name: Component request
+description: Suggest a component, block, chart or template
+labels: ["request"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: e.g. Kanban Board
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: What would you use it for?
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: References
+      description: Links to an app, a Dribbble shot or a video help a lot.
