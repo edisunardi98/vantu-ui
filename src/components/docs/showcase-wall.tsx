@@ -156,7 +156,8 @@ const rowTwo = (
  */
 function MarqueeRow({ children, reverse }: { children: ReactNode; reverse?: boolean }) {
   const track = (hidden?: boolean) => (
-    <div className="flex shrink-0 items-center gap-6 pr-6" aria-hidden={hidden || undefined} inert={hidden || undefined}>
+    // Phones: top-align so short cards don't leave tall gaps between rows; larger screens center them.
+    <div className="flex shrink-0 items-start gap-6 pr-6 sm:items-center" aria-hidden={hidden || undefined} inert={hidden || undefined}>
       {children}
     </div>
   );
@@ -182,7 +183,8 @@ function MarqueeRow({ children, reverse }: { children: ReactNode; reverse?: bool
 export function ShowcaseWall({ className }: { className?: string }) {
   return (
     <div className={cx("relative [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]", className)}>
-      <div className="flex flex-col gap-6 text-left [zoom:0.55] sm:[zoom:0.68] lg:[zoom:0.8] 2xl:[zoom:0.92]">
+      {/* 0.72 on phones keeps card text legible (~1.5 cards in view); it grows toward 0.92 on wide screens. */}
+      <div className="flex flex-col gap-5 text-left [zoom:0.72] sm:[zoom:0.72] lg:[zoom:0.8] 2xl:[zoom:0.92]">
         <MarqueeRow>{rowOne}</MarqueeRow>
         <MarqueeRow reverse>{rowTwo}</MarqueeRow>
       </div>

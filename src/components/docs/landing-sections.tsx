@@ -56,16 +56,17 @@ export function HowItWorks() {
   return (
     <section className={sectionClass}>
       <SectionHeader icon={<Workflow />} eyebrow="How it works" title="From install to shipped screen in three steps" description="No runtime package and no lock-in — the code lands in your project and stays yours." />
+      {/* min-w-0 on the cards: long code lines must scroll inside their block, not widen the grid past the screen. */}
       <ol className="mt-12 grid gap-4 lg:grid-cols-3">
         {steps.map((s, i) => (
-          <li key={s.title} className="group flex flex-col rounded-lg border border-line bg-subtle p-1 shadow-card">
+          <li key={s.title} className="group flex min-w-0 flex-col rounded-lg border border-line bg-subtle p-1 shadow-card">
             {/* Isometric illustration — the same line art as the docs thumbnails */}
             <IsoScene slug={s.scene} label={`${s.title} illustration`} className="h-44 overflow-hidden rounded-[12px] border border-line bg-subtle px-2 pt-2" />
             <div className="flex items-baseline gap-2 px-3 pb-3 pt-3.5">
               <span className="text-sm font-medium tabular-nums text-accent-text">0{i + 1}</span>
               <h3 className="text-lg font-medium text-fg">{s.title}</h3>
             </div>
-            <div className="flex flex-1 flex-col gap-4 rounded-[12px] border border-line bg-surface p-4">
+            <div className="flex min-w-0 flex-1 flex-col gap-4 rounded-[12px] border border-line bg-surface p-4">
               <p className="text-base text-fg-secondary">{s.text}</p>
               <CodeBlock variant="shell" title={s.lang === "bash" ? "Terminal" : "styles/theme.css"} code={s.code} lang={s.lang} className="mt-auto" />
             </div>
