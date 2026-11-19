@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics";
 import "@/styles/globals.css";
 import "./docs.css";
+
+const analyticsEnabled = process.env.NODE_ENV === "production";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -18,7 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // attribute mismatches on these two elements only — children are still checked.
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh" suppressHydrationWarning>
+        {/* Google Tag Manager — production builds only, so local dev doesn't pollute the data. */}
+        {analyticsEnabled && <GoogleTagManagerNoScript />}
         {children}
+        {analyticsEnabled && <GoogleTagManager />}
       </body>
     </html>
   );

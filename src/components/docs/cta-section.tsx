@@ -115,12 +115,14 @@ export function CtaSection() {
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               <Link
                 href="/docs/installation"
+                data-track="cta_click" data-track-cta="get_started" data-track-location="cta"
                 className="inline-flex h-11 items-center gap-2 rounded-md bg-white px-5 text-base font-medium text-fg outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-white/40"
               >
                 Get started <ArrowRight className="size-4" />
               </Link>
               <Link
                 href="/templates"
+                data-track="cta_click" data-track-cta="view_templates" data-track-location="cta"
                 className="inline-flex h-11 items-center rounded-md px-5 text-base font-medium text-white outline-none ring-1 ring-white/20 hover:bg-white/10 focus-visible:ring-white/50"
               >
                 View templates

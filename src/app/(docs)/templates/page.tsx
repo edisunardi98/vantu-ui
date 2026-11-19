@@ -26,6 +26,10 @@ export default async function TemplatesPage() {
               <Link
                 href={`/preview/${t.slug}`}
                 target="_blank"
+                data-track="cta_click"
+                data-track-cta="open_full_screen"
+                data-track-location="templates_page"
+                data-track-template={t.slug}
                 className="inline-flex h-8 items-center gap-1.5 rounded-sm px-2.5 text-sm font-medium text-fg-muted outline-none transition-colors hover:text-fg focus-visible:shadow-focus"
               >
                 <ExternalLink className="size-3.5" /> Open full screen

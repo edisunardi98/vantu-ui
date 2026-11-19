@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { EVENTS, track } from "@/lib/analytics";
 import { cx } from "@/utils/cx";
 import { CopyButton } from "./copy-button";
 
@@ -29,7 +30,10 @@ export function PackageManagerTabs({ commands }: { commands: PackageCommand[] })
             role="tab"
             aria-selected={active === c.id}
             aria-controls={`${id}-panel`}
-            onClick={() => setActive(c.id)}
+            onClick={() => {
+              if (c.id !== active) track(EVENTS.packageManager, { manager: c.id });
+              setActive(c.id);
+            }}
             className={cx(
               "-mb-px border-b-2 py-2.5 text-sm font-medium outline-none transition-colors focus-visible:shadow-focus",
               active === c.id ? "border-accent text-fg" : "border-transparent text-fg-muted hover:text-fg",

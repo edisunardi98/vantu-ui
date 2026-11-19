@@ -135,6 +135,7 @@ function HeaderBar() {
             <GitHubStars className="hidden sm:inline-flex" />
             <Link
               href="/docs/installation"
+              data-track="cta_click" data-track-cta="get_started" data-track-location="navbar"
               className="hidden h-10 items-center rounded-[12px] bg-linear-to-b from-accent-light to-accent px-4 text-base font-medium text-white shadow-button-primary outline-none hover:to-accent-hover focus-visible:ring-3 focus-visible:ring-accent/25 sm:inline-flex"
             >
               Get started

@@ -31,7 +31,7 @@ export default function HomePage() {
           <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(60%_60%_at_50%_0%,var(--color-accent-soft)_0%,transparent_70%)]" />
           <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[linear-gradient(to_right,var(--color-line-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-line-subtle)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
           <div className="relative mx-auto max-w-[1200px] px-4 pb-16 pt-20 text-center sm:px-6 sm:pt-28">
-            <Link href="/components" className="mx-auto inline-flex items-center gap-2 rounded-full bg-surface py-1 pl-1 pr-3 text-sm text-fg-secondary shadow-button hover:text-fg">
+            <Link href="/components" data-track="cta_click" data-track-cta="hero_badge" data-track-location="hero" className="mx-auto inline-flex items-center gap-2 rounded-full bg-surface py-1 pl-1 pr-3 text-sm text-fg-secondary shadow-button hover:text-fg">
               <span className="rounded-full bg-accent-soft px-2 py-0.5 font-medium text-accent-text">New</span>
               {components.length} components · {blocks.length} blocks · {charts.length} charts · designed in Figma by Vantu
               <ArrowRight className="size-3.5" />
@@ -47,11 +47,12 @@ export default function HomePage() {
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/docs/installation"
+                data-track="cta_click" data-track-cta="get_started" data-track-location="hero"
                 className="inline-flex h-11 items-center gap-2 rounded-md bg-linear-to-b from-accent-light to-accent px-5 text-base font-medium text-white shadow-button-primary outline-none hover:to-accent-hover focus-visible:ring-3 focus-visible:ring-accent/25"
               >
                 Get started <ArrowRight className="size-4" />
               </Link>
-              <Link href="/components" className="inline-flex h-11 items-center rounded-md bg-surface px-5 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus">
+              <Link href="/components" data-track="cta_click" data-track-cta="browse_components" data-track-location="hero" className="inline-flex h-11 items-center rounded-md bg-surface px-5 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus">
                 Browse components
               </Link>
             </div>

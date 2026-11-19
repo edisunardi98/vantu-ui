@@ -48,7 +48,7 @@ export function ComponentShowcase() {
         <p className="mt-3 text-lg text-fg-secondary">
           <span className="font-medium text-fg">Accessible</span> pieces styled from Figma that <span className="font-medium text-fg">adapt</span> to your product
         </p>
-        <Link href="/components" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
+        <Link href="/components" data-track="cta_click" data-track-cta="browse_components" data-track-location="components_section" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
           Browse all components
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
@@ -88,6 +88,9 @@ export function ComponentShowcase() {
         <div className="absolute inset-x-0 bottom-6 flex justify-center">
           <Link
             href="/components"
+            data-track="cta_click"
+            data-track-cta="browse_all"
+            data-track-location="components_section"
             className="group inline-flex h-11 items-center gap-1.5 rounded-[12px] bg-inverse pl-5 pr-3.5 text-base font-medium text-fg-inverse shadow-popover outline-none transition-transform hover:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-accent/40"
           >
             Browse all

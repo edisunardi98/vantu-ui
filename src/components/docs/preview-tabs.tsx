@@ -2,6 +2,7 @@
 
 import { Code2, Eye } from "lucide-react";
 import { type ReactNode, useId, useState } from "react";
+import { EVENTS, track } from "@/lib/analytics";
 import { cx } from "@/utils/cx";
 import { CopyButton } from "./copy-button";
 
@@ -40,7 +41,10 @@ export function PreviewTabs({ preview, code, copy, fullBleed, flush, actions }: 
               role="tab"
               aria-selected={tab === t}
               aria-controls={`${id}-${t}`}
-              onClick={() => setTab(t)}
+              onClick={() => {
+                if (t !== tab) track(EVENTS.previewTab, { tab: t });
+                setTab(t);
+              }}
               className={cx(
                 "inline-flex h-8 items-center gap-1.5 rounded-sm border px-2.5 text-sm font-medium capitalize outline-none transition-colors focus-visible:shadow-focus",
                 tab === t ? "border-line bg-surface text-fg shadow-button" : "border-transparent text-fg-muted hover:text-fg",

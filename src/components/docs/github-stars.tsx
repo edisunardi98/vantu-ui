@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { EVENTS, track } from "@/lib/analytics";
 import { githubRepoUrl } from "@/lib/github";
 import { cx } from "@/utils/cx";
 
@@ -42,6 +43,7 @@ export function GitHubStars({ size = "md", className }: { size?: "sm" | "md"; cl
       href={githubRepoUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track(EVENTS.githubClick, { stars: typeof stars === "number" ? stars : undefined, location: size === "sm" ? "docs_topbar" : "navbar" })}
       aria-label={label}
       title={label}
       className={cx(

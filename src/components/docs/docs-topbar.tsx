@@ -73,11 +73,12 @@ export function DocsTopbar() {
           <Search className="size-4" />
         </button>
         <GitHubStars size="sm" className="hidden sm:inline-flex" />
-        <Link href="/templates" className="hidden h-9 items-center rounded-md bg-surface px-3 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus sm:inline-flex">
+        <Link href="/templates" data-track="cta_click" data-track-cta="templates" data-track-location="docs_topbar" className="hidden h-9 items-center rounded-md bg-surface px-3 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus sm:inline-flex">
           Templates
         </Link>
         <Link
           href="/docs/installation"
+          data-track="cta_click" data-track-cta="get_started" data-track-location="docs_topbar"
           className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-linear-to-b from-accent-light to-accent px-3.5 text-base font-medium text-white shadow-button-primary outline-none hover:to-accent-hover focus-visible:ring-3 focus-visible:ring-accent/25"
         >
           Get started

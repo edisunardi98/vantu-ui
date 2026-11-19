@@ -2,9 +2,10 @@
 
 import { CornerDownLeft, FileText, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, type ReactNode, useContext, useEffect, useRef, useState } from "react";
 import { Autocomplete, Dialog, Header, Input, Menu, MenuItem, MenuSection, Modal, ModalOverlay, SearchField, useFilter } from "react-aria-components";
 import { Kbd } from "@/components/ui/kbd";
+import { EVENTS, track } from "@/lib/analytics";
 import { navSections } from "./docs-nav";
 
 const SearchContext = createContext<{ open: () => void }>({ open: () => {} });
@@ -17,10 +18,14 @@ export function DocsSearchProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { contains } = useFilter({ sensitivity: "base" });
 
+  // How the dialog was opened, reported once per open.
+  const openMethod = useRef<"shortcut" | "click">("click");
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
+        openMethod.current = "shortcut";
         setOpen((o) => !o);
       }
     };
@@ -28,8 +33,19 @@ export function DocsSearchProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) track(EVENTS.searchOpen, { method: openMethod.current });
+  }, [isOpen]);
+
   return (
-    <SearchContext.Provider value={{ open: () => setOpen(true) }}>
+    <SearchContext.Provider
+      value={{
+        open: () => {
+          openMethod.current = "click";
+          setOpen(true);
+        },
+      }}
+    >
       {children}
       <ModalOverlay isOpen={isOpen} onOpenChange={setOpen} isDismissable className="fixed inset-0 z-50 flex items-start justify-center bg-inverse/30 p-4 pt-[12vh] backdrop-blur-[1px]">
         <Modal className="w-full max-w-[560px] outline-none">
@@ -44,6 +60,7 @@ export function DocsSearchProvider({ children }: { children: ReactNode }) {
                 aria-label="Pages"
                 onAction={(key) => {
                   setOpen(false);
+                  track(EVENTS.searchSelect, { destination: String(key) });
                   router.push(String(key));
                 }}
                 renderEmptyState={() => <div className="px-4 py-10 text-center text-base text-fg-muted">No pages found.</div>}

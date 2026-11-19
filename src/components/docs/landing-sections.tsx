@@ -90,7 +90,7 @@ export function TemplatesShowcase() {
         title="Full screens, ready to adapt"
         description={`${templates.length} dashboard screens assembled from the same blocks — CRM, team, calendar, members, settings, auth and onboarding.`}
         action={
-          <Link href="/templates" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
+          <Link href="/templates" data-track="cta_click" data-track-cta="browse_templates" data-track-location="templates_section" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
             Browse all templates
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
@@ -104,7 +104,13 @@ export function TemplatesShowcase() {
             </div>
             <div className="px-3 pb-3 pt-3">
               <h3 className="flex items-center justify-between gap-2 font-medium text-fg">
-                <Link href={`/templates#${t.slug}`} className="outline-none after:absolute after:inset-0 after:rounded-lg after:content-['']">
+                <Link
+                  href={`/templates#${t.slug}`}
+                  data-track="cta_click"
+                  data-track-cta="template_card"
+                  data-track-location="templates_section"
+                  data-track-template={t.slug}
+                  className="outline-none after:absolute after:inset-0 after:rounded-lg after:content-['']">
                   {t.name}
                 </Link>
                 <ExternalLink aria-hidden className="size-3.5 text-fg-muted transition-colors group-hover:text-fg" />
@@ -152,11 +158,12 @@ export function AISection() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/docs/ai"
+              data-track="cta_click" data-track-cta="using_with_ai" data-track-location="ai_section"
               className="inline-flex h-10 items-center gap-2 rounded-md bg-linear-to-b from-accent-light to-accent px-4 text-base font-medium text-white shadow-button-primary outline-none hover:to-accent-hover focus-visible:ring-3 focus-visible:ring-accent/25"
             >
               Using with AI <ArrowRight className="size-4" />
             </Link>
-            <Link href="/docs/agent-skill" className="inline-flex h-10 items-center rounded-md bg-surface px-4 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus">
+            <Link href="/docs/agent-skill" data-track="cta_click" data-track-cta="agent_skill" data-track-location="ai_section" className="inline-flex h-10 items-center rounded-md bg-surface px-4 text-base font-medium text-fg shadow-button outline-none hover:bg-subtle focus-visible:shadow-focus">
               Agent skill
             </Link>
           </div>
@@ -236,7 +243,7 @@ export function FAQ() {
           </span>
           <h2 className="mt-5 text-4xl font-semibold tracking-tight text-fg">Questions, answered</h2>
           <p className="mt-3 text-lg text-fg-secondary">Everything about the stack, installing, theming and using Vantu with AI.</p>
-          <Link href="/docs" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
+          <Link href="/docs" data-track="cta_click" data-track-cta="read_docs" data-track-location="faq" className="group mt-6 inline-flex items-center gap-1.5 text-base font-medium text-fg hover:text-accent-text">
             <Code2 className="size-4" /> Read the docs
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>

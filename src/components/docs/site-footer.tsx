@@ -72,7 +72,7 @@ export function SiteFooter() {
                 <li key={l.href}>
                   {l.external ? (
                     // Plain text files and JSON served by route handlers — a full page load, opened in a new tab.
-                    <a href={l.href} target="_blank" rel="noopener" className={linkClass}>
+                    <a href={l.href} target="_blank" rel="noopener" data-track="cta_click" data-track-cta="ai_file" data-track-location="footer" data-track-file={l.label} className={linkClass}>
                       <span className="font-mono text-[13px]">{l.label}</span>
                       <ArrowUpRight aria-hidden className="size-3.5 text-fg-muted" />
                     </a>

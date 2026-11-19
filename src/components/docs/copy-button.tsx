@@ -2,6 +2,7 @@
 
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import { EVENTS, track } from "@/lib/analytics";
 import { cx } from "@/utils/cx";
 
 /**
@@ -17,6 +18,11 @@ export function CopyButton({ value, label, className }: { value: string; label?:
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(value);
+          const firstLine = value.trimStart().split("\n")[0] ?? "";
+          track(EVENTS.copyCode, {
+            copy_kind: /^(npx|npm|pnpm|yarn)\b/.test(firstLine) ? "command" : /^https?:\/\//.test(firstLine) ? "url" : "code",
+            snippet: firstLine.slice(0, 100),
+          });
           setCopied(true);
           setTimeout(() => setCopied(false), 1500);
         } catch {
